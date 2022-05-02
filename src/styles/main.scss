@@ -176,7 +176,7 @@ header {
               @include circleInnerSize($s_rc);
               @include circularShape();
               background: #fff;
-              box-shadow: inset 1px 4px rgba(0, 0, 0, .2);
+              box-shadow: inset 1px 10px rgba(0, 0, 0, .2);
 
               img {
                 @include circleImgSize($s_rc + 20)
@@ -213,6 +213,7 @@ header {
           font-family: inherit;
           border-radius: 5px;
           margin-top: 10px;
+          font-weight: bold;
           @include opacityAnim(1s);
         }
       }
@@ -229,7 +230,7 @@ header {
     @include circleInnerSize($s_choice);
     @include circularShape();
     background-color: #fff;
-    box-shadow: inset 1px 4px rgba(0, 0, 0, .2);
+    box-shadow: inset 1px 10px rgba(0, 0, 0, .2);
     
     img {
       @include circleImgSize($s_choice)
@@ -315,5 +316,18 @@ footer {
         border: 0;
       }
     }
+  }
+}
+
+.signature {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  font-weight: bold;
+  text-transform: lowercase;
+  color: #fff;
+  > a {
+    color: c_txt;
+    text-decoration: none;
   }
 }

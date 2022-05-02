@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "build-css": "node-sass-chokidar src/ -o public/",
-      "watch-css": "npm run build-css && node-sass-chokidar src/ -o public/ --watch --recursive"
+    "build-css": "node-sass-chokidar src/ -o public/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o public/ --watch --recursive"
   },
   "author": "",
   "license": "ISC",

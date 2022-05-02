@@ -7,6 +7,7 @@ import Html.Events exposing (onClick)
 import Random
 import Process
 import Task
+import Html.Attributes.Aria exposing (ariaLabel, role)
 
 -- MAIN
 
@@ -32,8 +33,6 @@ id_scissors : Int
 id_scissors = 3
 folder_image : String
 folder_image = "./images/"
-
-
 
 type alias Model =
   { playerChoice : Int
@@ -68,7 +67,6 @@ type Action
   | ShowResultLabel
   | ShowHouseChoice
 
-
 update : Action -> Model -> (Model, Cmd Action)
 update msg model =
   case msg of
@@ -100,7 +98,6 @@ update msg model =
     ShowHouseChoice ->
         ({ model | showHouseChoice = True }, Cmd.none)
     
-
 delayViews : Float -> Action -> Cmd Action
 delayViews t action =
     Process.sleep (t * 1000)
@@ -150,19 +147,27 @@ subscriptions _ =
 
 view : Model -> Html Action
 view model =
-  div [class "page"] [
+  main_ [class "page"] [
       div [class "page-content"] [
         contentView model
       ]
     , footerView
     , rulesModalView model.showRules
+    , signatureView
+  ]
+
+signatureView : Html msg
+signatureView =
+  span [class "signature"] [
+    text "by ",
+    a [target "_blank", href "http://github.com/bandeiraos"] [text "bandeiraos"]
   ]
 
 headerView : Int -> Html msg
 headerView score =
   header [] [
-    div [class "logo"] [
-      img [src (folder_image ++ "logo.svg")] []
+    div [role "heading", attribute "aria-level" "1", class "logo"] [
+      img [src (folder_image ++ "logo.svg"), alt "Rock Paper Scissors Logo"] []
     ]
   , div [class "score-wrapper"] [
       div [class "score-content"] [
@@ -179,10 +184,10 @@ rulesModalView show =
   , div [class "rules-modal"] [
       div [class "rules-modal-header"] [
         span [] [text "Rules"]
-      , button [type_ "button", onClick ShowRules] [img [src (folder_image ++ "icon-close.svg")] []]
+      , button [type_ "button", onClick ShowRules, ariaLabel "Close rules"] [img [alt "Close rules", src (folder_image ++ "icon-close.svg")] []]
       ]
     , div [class "rules-modal-body"] [
-       img [src (folder_image ++ "image-rules.svg")] []
+       img [src (folder_image ++ "image-rules.svg"), alt "Image showing the rules."] []
       ]
     ]
   ]
@@ -214,7 +219,7 @@ getChoiceImg c =
     1 -> folder_image ++ "icon-rock.svg"
     2 -> folder_image ++ "icon-paper.svg"
     3 -> folder_image ++ "icon-scissors.svg"
-    _ -> ""
+    _ -> folder_image ++ "icon-empty.svg"
 
 choiceButtonsView : Int -> Html Action
 choiceButtonsView c = 
@@ -253,7 +258,7 @@ getResultChoiceView c isPlayer showHouseChoice hasWon =
         , ("win-fx", hasWon) 
         ]] [
             div [class "rc-item-inner"] [
-                img [src (getChoiceImg c), width 100, height 100] []
+                img [src (getChoiceImg c), width 100, height 100, alt (getChoiceName c)] []
             ]
       ]
     ]
@@ -285,9 +290,17 @@ getResultLabelView r =
 
 createButton : String -> (Int -> msg) -> Int -> Html msg
 createButton imgSrc onclick option = 
-  button [type_ "button", classList [("choice-option", True), (getChoiceClassname option, True)], 
+  button [(ariaLabel ("Choose " ++ (getChoiceName option))), type_ "button", classList [("choice-option", True), (getChoiceClassname option, True)], 
     onClick (onclick option)] [
-    div [class "choice-option-inner"] [
-        img [src imgSrc] []
+    span [class "choice-option-inner"] [
+        img [src imgSrc, alt (getChoiceName option)] []
     ]
   ]
+
+getChoiceName : Int -> String
+getChoiceName o =
+  case o of
+    1 -> "rock"
+    2 -> "paper"
+    3 -> "scissor"
+    _ -> "empty" 
