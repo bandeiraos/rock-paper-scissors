@@ -1,0 +1,133 @@
+@keyframes winner {
+  0% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.1); }
+  50% {
+    box-shadow: 0 0 5px 25px rgba(255, 255, 255, 0.1); }
+  100% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.1); } }
+
+@keyframes opacityKf {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@media screen and (max-width: 900px) {
+  .page-content {
+    padding: 30px; } }
+
+@media screen and (max-width: 700px) {
+  .content-wrapper > .content-center > .choices-wrapper > .choice-option {
+    width: 120px;
+    height: 120px; }
+    .content-wrapper > .content-center > .choices-wrapper > .choice-option > .choice-option-inner {
+      width: 80px;
+      height: 80px; }
+      .content-wrapper > .content-center > .choices-wrapper > .choice-option > .choice-option-inner > img {
+        width: 40px;
+        height: 40px; }
+    .content-wrapper > .content-center > .choices-wrapper > .choice-option:nth-child(1) {
+      left: 15%; }
+    .content-wrapper > .content-center > .choices-wrapper > .choice-option:nth-child(2) {
+      left: 38%;
+      bottom: 25%; }
+    .content-wrapper > .content-center > .choices-wrapper > .choice-option:nth-child(3) {
+      right: 15%; }
+  .content-wrapper > .content-center > .result-wrapper {
+    position: relative; }
+    .content-wrapper > .content-center > .result-wrapper > .result-middle {
+      position: absolute;
+      bottom: 0; }
+    .content-wrapper > .content-center > .result-wrapper > .result-choice-wrapper > .rc-inner {
+      width: 160px;
+      height: 160px; }
+      .content-wrapper > .content-center > .result-wrapper > .result-choice-wrapper > .rc-inner > .rc-placeholder {
+        width: 120px;
+        height: 120px; }
+      .content-wrapper > .content-center > .result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item {
+        width: 160px;
+        height: 160px; }
+        .content-wrapper > .content-center > .result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item > .rc-item-inner {
+          width: 120px;
+          height: 120px; }
+          .content-wrapper > .content-center > .result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item > .rc-item-inner > img {
+            width: 53.33333px;
+            height: 53.33333px; }
+  footer {
+    justify-content: center; } }
+
+@media screen and (max-width: 460px) {
+  header {
+    height: 120px; }
+    header .logo > img {
+      width: 100px; }
+    header > .score-wrapper {
+      width: 90px;
+      padding: 5px 15px; }
+      header > .score-wrapper > .score-content > .score {
+        font-size: 3em;
+        line-height: 0.8; }
+  .content-wrapper > .content-center >
+.choices-wrapper >
+.choice-option:nth-child(1) {
+    left: 4%; }
+  .content-wrapper > .content-center >
+.choices-wrapper >
+.choice-option:nth-child(2) {
+    left: 34%;
+    bottom: 24%; }
+  .content-wrapper > .content-center >
+.choices-wrapper >
+.choice-option:nth-child(3) {
+    right: 4%; } }
+
+@media screen and (max-width: 390px) {
+  .content-wrapper > .content-center >
+.choices-wrapper >
+.choice-option:nth-child(2) {
+    left: 31%;
+    bottom: 25%; }
+  .content-wrapper > .content-center >
+.result-wrapper > .result-middle {
+    bottom: 40px; }
+    .content-wrapper > .content-center >
+.result-wrapper > .result-middle > .btn-again {
+      font-size: 1.2em;
+      height: 50px;
+      font-weight: bold;
+      margin-top: 20px; }
+  .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-label {
+    font-size: 0.9em; }
+  .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-inner {
+    width: 120px;
+    height: 120px; }
+    .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-inner > .rc-placeholder {
+      top: 5px; }
+    .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item {
+      width: 120px;
+      height: 120px; }
+      .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item > .rc-item-inner {
+        width: 80px;
+        height: 80px; }
+        .content-wrapper > .content-center >
+.result-wrapper > .result-choice-wrapper > .rc-inner > .rc-item > .rc-item-inner > img {
+          width: 40px;
+          height: 40px; }
+  .rules-wrapper > .rules-modal {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 0; }
+    .rules-wrapper > .rules-modal > .rules-modal-header {
+      justify-content: center;
+      margin-top: 50px;
+      margin-bottom: 80px; }
+      .rules-wrapper > .rules-modal > .rules-modal-header > button {
+        position: absolute;
+        bottom: 10%;
+        left: 48%; } }
